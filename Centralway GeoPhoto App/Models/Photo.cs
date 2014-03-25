@@ -8,17 +8,16 @@ namespace Centralway_GeoPhoto_App.Models
 {
     public class Photo
     {
-        public string Title { get; set; }
-
         public string ImageURL { get; set; }
+
+        public Photo(string url)
+        {
+            this.ImageURL = url;
+        }
 
         public static Photo FromFlickrPhoto(FlickrNet.Photo photo)
         {
-            return new Photo
-            {
-                Title = photo.Title,
-                ImageURL = photo.LargeUrl
-            };
+            return new Photo(photo.OriginalUrl);
         }
     }
 }

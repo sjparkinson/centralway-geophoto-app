@@ -1,4 +1,5 @@
 ﻿using Centralway_GeoPhoto_App.Models;
+using Framework.ApiClients.GooglePlaces;
 using GoogleMapsApi;
 using GoogleMapsApi.Entities.Places.Request;
 using GoogleMapsApi.Entities.PlacesDetails.Request;
@@ -11,6 +12,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using SearchResult = GoogleMapsApi.Entities.PlacesText.Response.Result;
 
@@ -18,20 +20,20 @@ namespace Centralway_GeoPhoto_App.Controllers
 {
     public class PlacesController : ApiController
     {
-        private readonly string googleAPIKey = ConfigurationManager.AppSettings["GoogleAPIKey"];
+        private readonly GooglePlacesApi placeClient = new GooglePlacesApi(ConfigurationManager.AppSettings["GoogleAPIKey"]);
 
-        // GET api/places?query=<query>
-        public IEnumerable<Place> Get(string query)
+        public async Task<IEnumerable<Place>> GetPlacesByText(string query)
         {
-            PlacesTextRequest placesRequest = new PlacesTextRequest()
-            {
-                ApiKey = googleAPIKey,
-                Query = query
-            };
+            var places = await placeClient.TextQueryAsync(query);
 
-            var response = GoogleMaps.PlacesText.Query(placesRequest);
+            return places.results.Select(r => Place.FromTextResponse(r));
+        }
 
-            return response.Results.Select(r => Place.FromSearchResult(r));
+        public async Task<Place> GetPlaceByReference(string reference)
+        {
+            var place = await placeClient.DetailQueryAsync(reference);
+
+            return Place.FromDetailResponse(place);
         }
     }
 }
