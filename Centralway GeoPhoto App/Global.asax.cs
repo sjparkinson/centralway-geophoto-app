@@ -20,7 +20,6 @@ namespace Centralway_GeoPhoto_App
             var formaters = GlobalConfiguration.Configuration.Formatters;
 
             formaters.Remove(formaters.XmlFormatter);
-
             formaters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
         }
     }
