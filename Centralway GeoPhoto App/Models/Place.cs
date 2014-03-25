@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Framework.ApiClients.GooglePlaces.Responses;
+using Framework.ApiClients.GooglePlaces.Responses.TextResponse;
+using Framework.ApiClients.GooglePlaces.Responses.DetailResponse;
 
 namespace Centralway_GeoPhoto_App.Models
 {
@@ -17,7 +20,7 @@ namespace Centralway_GeoPhoto_App.Models
 
         public bool HasPhotos { get; set; }
 
-        public static Place FromTextResponse(Framework.ApiClients.GooglePlaces.TextResponse.Result result)
+        public static Place FromTextResponse(Framework.ApiClients.GooglePlaces.Responses.TextResponse.Result result)
         {
             var place = new Place
             {
@@ -30,7 +33,7 @@ namespace Centralway_GeoPhoto_App.Models
             return place;
         }
 
-        public static Place FromDetailResponse(Framework.ApiClients.GooglePlaces.DetailResponse.GooglePlacesDetailResponse response)
+        public static Place FromDetailResponse(GooglePlacesDetailResponse response)
         {
             var result = response.result;
 
@@ -53,7 +56,7 @@ namespace Centralway_GeoPhoto_App.Models
 
         public double Longitude { get; set; }
 
-        public static PlaceLocation FromApiGeometry(Framework.ApiClients.GooglePlaces.Geometry geometry)
+        public static PlaceLocation FromApiGeometry(Geometry geometry)
         {
             return new PlaceLocation
             {

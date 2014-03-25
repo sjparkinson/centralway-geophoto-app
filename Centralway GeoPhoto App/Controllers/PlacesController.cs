@@ -1,11 +1,5 @@
 ﻿using Centralway_GeoPhoto_App.Models;
 using Framework.ApiClients.GooglePlaces;
-using GoogleMapsApi;
-using GoogleMapsApi.Entities.Places.Request;
-using GoogleMapsApi.Entities.PlacesDetails.Request;
-using GoogleMapsApi.Entities.PlacesDetails.Response;
-using GoogleMapsApi.Entities.PlacesText.Request;
-using GoogleMapsApi.Entities.PlacesText.Response;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,7 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SearchResult = GoogleMapsApi.Entities.PlacesText.Response.Result;
 
 namespace Centralway_GeoPhoto_App.Controllers
 {

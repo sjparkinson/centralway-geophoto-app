@@ -17,7 +17,7 @@ namespace Centralway_GeoPhoto_App.Models
 
         public static Photo FromFlickrPhoto(FlickrNet.Photo photo)
         {
-            return new Photo(photo.OriginalUrl);
+            return new Photo(photo.LargeUrl);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Framework.ApiClients.GooglePlaces.DetailResponse
+namespace Framework.ApiClients.GooglePlaces.Responses.DetailResponse
 {
     public class GooglePlacesDetailResponse
     {

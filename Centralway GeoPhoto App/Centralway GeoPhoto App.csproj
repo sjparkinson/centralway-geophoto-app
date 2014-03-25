@@ -42,9 +42,6 @@
     <Reference Include="FlickrNet">
       <HintPath>..\packages\FlickrNet.3.10.0\lib\net20\FlickrNet.dll</HintPath>
     </Reference>
-    <Reference Include="GoogleMapsApi">
-      <HintPath>..\packages\GoogleMapsApi.0.30.0.0\lib\net45\GoogleMapsApi.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -45,9 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiClients\GooglePlaces\GooglePlacesApi.cs" />
-    <Compile Include="ApiClients\GooglePlaces\GooglePlacesDetailResponse.cs" />
-    <Compile Include="ApiClients\GooglePlaces\GooglePlacesResponse.cs" />
-    <Compile Include="ApiClients\GooglePlaces\GooglePlacesTextResponse.cs" />
+    <Compile Include="ApiClients\GooglePlaces\Responses\GooglePlacesDetailResponse.cs" />
+    <Compile Include="ApiClients\GooglePlaces\Responses\GooglePlacesResponse.cs" />
+    <Compile Include="ApiClients\GooglePlaces\Responses\GooglePlacesTextResponse.cs" />
     <Compile Include="ApiClients\BaseRestClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

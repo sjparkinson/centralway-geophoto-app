@@ -1,9 +1,10 @@
-﻿using Framework.ApiClients.GooglePlaces.DetailResponse;
-using Framework.ApiClients.GooglePlaces.TextResponse;
+﻿using Framework.ApiClients.GooglePlaces.Responses.DetailResponse;
+using Framework.ApiClients.GooglePlaces.Responses.TextResponse;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,11 +45,13 @@ namespace Framework.ApiClients.GooglePlaces
 
             string url = this.GetUrlWithParameters(parameters);
 
-            using (var client = new HttpClient())
-            using (var response = await client.GetAsync(url))
-            {
-                return response.RequestMessage.RequestUri.AbsoluteUri;
-            }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+            request.AllowAutoRedirect = false;
+
+            var response = await request.GetResponseAsync();
+
+            return response.Headers["Location"];
         }
 
         private async Task<T> GetQueryResponse<T>(string key, string value)

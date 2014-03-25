@@ -8,7 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SearchResult = GoogleMapsApi.Entities.PlacesText.Response.Result;
 
 namespace Centralway_GeoPhoto_App.Controllers
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Framework.ApiClients.GooglePlaces
+namespace Framework.ApiClients.GooglePlaces.Responses
 {
     public class Location
     {
