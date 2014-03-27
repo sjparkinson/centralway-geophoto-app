@@ -1,0 +1,20 @@
+﻿#map-canvas
+{
+    border-radius: 5px;
+}
+
+ul.photos
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.photos li
+{
+    list-style-type: none;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}

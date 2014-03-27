@@ -19,14 +19,7 @@ namespace Centralway_GeoPhoto_App.Controllers
         {
             var places = await placeClient.TextQueryAsync(query);
 
-            return places.results.Select(r => Place.FromTextResponse(r));
-        }
-
-        public async Task<Place> GetPlaceByReference(string reference)
-        {
-            var place = await placeClient.DetailQueryAsync(reference);
-
-            return Place.FromDetailResponse(place);
+            return places.results.Take(5).Select(r => Place.FromTextResponse(r));
         }
     }
 }

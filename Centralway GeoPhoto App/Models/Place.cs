@@ -18,6 +18,8 @@ namespace Centralway_GeoPhoto_App.Models
 
         public PlaceLocation Location { get; set; }
 
+        public List<string> Types { get; set; }
+
         public bool HasPhotos { get; set; }
 
         public static Place FromTextResponse(Framework.ApiClients.GooglePlaces.Responses.TextResponse.Result result)
@@ -28,6 +30,7 @@ namespace Centralway_GeoPhoto_App.Models
                 Address = result.formatted_address,
                 Reference = result.reference,
                 Location = PlaceLocation.FromApiGeometry(result.geometry),
+                Types = result.types,
                 HasPhotos = (result.photos != null) ? true : false
             };
             return place;
@@ -43,6 +46,7 @@ namespace Centralway_GeoPhoto_App.Models
                 Address = result.formatted_address,
                 Reference = result.reference,
                 Location = PlaceLocation.FromApiGeometry(result.geometry),
+                Types = result.types,
                 HasPhotos = (result.photos != null) ? true : false
             };
 
