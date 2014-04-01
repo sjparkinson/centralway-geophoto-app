@@ -39,6 +39,13 @@ namespace Framework.ApiClients
             return this;
         }
 
+        protected BaseRestClient AddRequestParameter(RequestParameter parameter)
+        {
+            this.requestParameters.Add(parameter);
+
+            return this;
+        }
+
         protected async Task<string> GetResponseAsync(string url)
         {
             using (var client = new HttpClient())
